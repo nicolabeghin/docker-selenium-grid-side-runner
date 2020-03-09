@@ -17,3 +17,12 @@ services:
     environment:
       - HUB_HOST=selenium-hub
       - HUB_PORT=4444
+
+  selenium-side-runner:
+    build: .
+    depends_on:
+      - selenium-node-chrome
+    volumes:
+      - './sides:/sides'
+      - './out:/root/out'
+
